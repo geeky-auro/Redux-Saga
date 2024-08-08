@@ -68,3 +68,52 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Extra Notes
+Work of Root-Reducer: If we have multiple reducer then we need to combine all of them into a single reducer and then use it in the store. 
+Store: It will collect all data from the store and send it to the respective component
+
+
+Redux - Architecture : View -> Action -> Reducer -> Store -> View -> ......
+
+What is Action?
+- Actions are the Plain Functions.
+- Get Data from ReactJs.
+- Send Data to Reducer after Process.
+- Must Have type key in Return Statement.
+- Much Sync type with Reducer.
+
+
+*) useSelector is a hook provided by React Redux that allows functional components to extract and access data from the Redux store. It subscribes to the Redux store, and whenever the store is updated, the component re-renders to reflect the changes.
+
+Here’s a breakdown of how to use useSelector:
+
+Import the useSelector hook from the ‘react-redux’ library.
+import {useSelector} from "react-redux";
+Call useSelector within your functional component, passing in a selector function.
+const counter = useSelector(state => state.counter);
+The selector function defines which part of the Redux store state you want to extract and use within your component.
+useSelector returns the selected data from the Redux store, which you can then use within your component.
+
+*) useDispatch is another hook provided by React Redux, which allows functional components to dispatch actions to the Redux store. It returns a reference to the dispatch function from the Redux store, enabling components to trigger state changes.
+
+Here’s how to use useDispatch:
+Import the useDispatch hook from the ‘react-redux’ library.
+import { useDispatch } from "react-redux";
+Call useDispatch within your functional component to get a reference to the dispatch function.
+const dispatch = useDispatch();
+Use the dispatch function to dispatch actions to the Redux store, which will update the state accordingly.
+
+
+Reducer:-
+- Reducer handle data for store
+- Update Data in store
+- Rules :-
+	- Need Root Reducer.
+	- Reducer must return the some value.
+	- The reducer must have some initial value.
+
+Note to Call our Reducer we need to connect reducer and root reducer with the store.
+
+Combine reducer adds namespaces to the state controlled by each reducer based on the keys of the object you pass in. When you don't use combine reducer, there won't be a namespace. So change state.rootReducer to state.
